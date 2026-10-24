@@ -1,0 +1,208 @@
+{
+  "$defs": {
+    "SourceCitation": {
+      "additionalProperties": false,
+      "description": "Bibliographic or archival source provenance for a linguistic item.",
+      "properties": {
+        "author": {
+          "description": "Author or publishing body",
+          "title": "Author",
+          "type": "string"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Year of publication",
+          "title": "Year"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Title of book, paper, or dataset",
+          "title": "Title"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Page number or section",
+          "title": "Page"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Web/Archive URL if publicly available",
+          "title": "Url"
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "License of source data (e.g. Public Domain, CC BY-SA 4.0)",
+          "title": "License"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Additional citation details",
+          "title": "Notes"
+        }
+      },
+      "required": [
+        "author"
+      ],
+      "title": "SourceCitation",
+      "type": "object"
+    },
+    "Variety": {
+      "description": "Documented traditional divisions and varieties of Deori.",
+      "enum": [
+        "dibongiya",
+        "tengapaniya",
+        "borgonya",
+        "patorgonya",
+        "historical_brown",
+        "community_standard",
+        "unspecified"
+      ],
+      "title": "Variety",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Declarative morphological rule for inflection or derivation.",
+  "properties": {
+    "rule_id": {
+      "title": "Rule Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "category": {
+      "description": "noun_case, verb_tense, verb_aspect, pronoun_number, etc.",
+      "title": "Category",
+      "type": "string"
+    },
+    "affix": {
+      "description": "Suffix or affix string",
+      "title": "Affix",
+      "type": "string"
+    },
+    "slot": {
+      "description": "Position or slot ordering (e.g. 'case', 'tense', 'aspect')",
+      "title": "Slot",
+      "type": "string"
+    },
+    "gloss": {
+      "description": "Leipzig gloss label (e.g. 'DAT', 'PST')",
+      "title": "Gloss",
+      "type": "string"
+    },
+    "variety": {
+      "$ref": "#/$defs/Variety",
+      "default": "unspecified"
+    },
+    "source": {
+      "$ref": "#/$defs/SourceCitation",
+      "description": "Exact citation (author, year, page) for this rule"
+    },
+    "allomorphs": {
+      "description": "Phonologically conditioned variants",
+      "items": {
+        "type": "string"
+      },
+      "title": "Allomorphs",
+      "type": "array"
+    },
+    "phonological_condition": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Condition (e.g. 'after vowel', 'after consonant')",
+      "title": "Phonological Condition"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    },
+    "examples": {
+      "description": "Attested pairs of (base, inflected, gloss) from source",
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Examples",
+      "type": "array"
+    }
+  },
+  "required": [
+    "rule_id",
+    "name",
+    "category",
+    "affix",
+    "slot",
+    "gloss",
+    "source"
+  ],
+  "title": "MorphologicalRule",
+  "type": "object"
+}

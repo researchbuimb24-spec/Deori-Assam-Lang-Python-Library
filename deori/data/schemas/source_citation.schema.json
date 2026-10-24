@@ -1,0 +1,97 @@
+{
+  "additionalProperties": false,
+  "description": "Bibliographic or archival source provenance for a linguistic item.",
+  "properties": {
+    "author": {
+      "description": "Author or publishing body",
+      "title": "Author",
+      "type": "string"
+    },
+    "year": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Year of publication",
+      "title": "Year"
+    },
+    "title": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Title of book, paper, or dataset",
+      "title": "Title"
+    },
+    "page": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Page number or section",
+      "title": "Page"
+    },
+    "url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Web/Archive URL if publicly available",
+      "title": "Url"
+    },
+    "license": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "License of source data (e.g. Public Domain, CC BY-SA 4.0)",
+      "title": "License"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Additional citation details",
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "author"
+  ],
+  "title": "SourceCitation",
+  "type": "object"
+}

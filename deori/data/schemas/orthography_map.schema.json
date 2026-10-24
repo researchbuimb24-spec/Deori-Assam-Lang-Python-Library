@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OrthographyMap",
+  "type": "object",
+  "required": ["metadata", "vowels", "consonants"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["name", "version", "source"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "source": { "$ref": "source_citation.schema.json" },
+        "description": { "type": "string" }
+      }
+    },
+    "vowels": {
+      "type": "object",
+      "required": ["independent", "dependent"],
+      "properties": {
+        "independent": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "dependent": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "consonants": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "signs": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "roman_to_assamese": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}
