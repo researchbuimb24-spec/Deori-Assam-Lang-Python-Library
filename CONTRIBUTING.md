@@ -27,8 +27,8 @@ The project uses modern Python packaging via `uv` or standard virtual environmen
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/deori.git
-cd deori
+git clone https://github.com/researchbuimb24-spec/Deori-Assam-Lang-Python-Library.git
+cd Deori-Assam-Lang-Python-Library
 
 # Create a virtual environment and install dependencies
 uv venv
